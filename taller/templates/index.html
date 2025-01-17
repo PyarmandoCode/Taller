@@ -30,8 +30,8 @@
         }
 
         .header h1 {
-            font-size: 3rem;
-            font-weight: 700;
+            font-size: 2rem;
+            
         }
 
         .header p {
@@ -158,9 +158,31 @@
         }
 
         .python-logo {
-            width: 50px;
+            width: 40px;
             height: auto;
         }
+
+        /* Asegurarse de que la imagen no sobresalga */
+    @media (max-width: 768px) {
+        .header {
+            flex-direction: column; /* Para que el título y el logo estén uno debajo del otro */
+            padding: 20px;
+            text-align: center; /* Centrar todo el contenido del header */
+        }
+
+        .header h1 {
+            font-size: 1.8rem; /* Tamaño de título más pequeño */
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem; /* Ajustar tamaño de texto en pantallas pequeñas */
+        }
+
+        .python-logo {
+            width: 30px; /* Logo aún más pequeño en pantallas muy pequeñas */
+        }
+    }
     </style>
 </head>
 
@@ -288,13 +310,11 @@
             </div>
             <div class="card-body">
                 <div class="row">
-                    <!-- Columna de texto -->
-                    <div class="col-md-8">
+                    <div class="col-12 col-md-8"> <!-- Cambio aquí: 'col-12' para pantallas pequeñas -->
                         <p style="text-align: justify;">Este taller cubre herramientas básicas para la automatización de tareas usando Python. Aprenderás desde la organización de archivos hasta la creación de bots que te permitirán automatizar procesos de manera eficiente.</p>
                         <p style="text-align: justify;">Al final del taller, tendrás las bases necesarias para aplicar la automatización en tus proyectos personales o profesionales. Python es una de las herramientas más poderosas y fáciles de aprender para lograr esta tarea. ¡Te esperamos!</p>
                     </div>
-                    <!-- Columna de imagen -->
-                    <div class="col-md-4 d-flex justify-content-center">
+                    <div class="col-12 col-md-4 d-flex justify-content-center">
                         <img src="https://res.cloudinary.com/dream-music/image/upload/v1737152372/pyarmando_elearning_2024/QR_cyor2v.png" alt="Imagen representativa del taller" class="img-fluid rounded mx-auto d-block">
                     </div>
                 </div>
