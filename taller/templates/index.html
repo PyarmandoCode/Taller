@@ -10,7 +10,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- FontAwesome para iconos -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts (Roboto y Open Sans) -->
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
@@ -18,68 +18,85 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
+            background-color: #f8f9fa;
         }
 
         .header {
-            background-color: #007bff;
+            background: linear-gradient(90deg, #007bff, #0056b3);
             color: white;
-            padding: 40px 0;
+            padding: 40px 20px;
             display: flex;
-            justify-content: space-between;
+            flex-wrap: wrap;
             align-items: center;
+            justify-content: space-between;
+            text-align: center;
         }
 
         .header h1 {
-            font-size: 2rem;
-            
+            font-size: 2.5rem;
+            margin: 0;
+            flex: 1 1 auto;
         }
 
         .header p {
-            font-size: 1.4rem;
-            font-weight: 600;
+            font-size: 1.2rem;
+            margin: 0;
+            flex: 1 1 auto;
+        }
+
+        .header img {
+            max-width: 80px;
+            flex: 0 0 auto;
         }
 
         .section-title {
-            margin-top: 30px;
             font-size: 2rem;
             font-weight: 600;
             color: #343a40;
+            margin-bottom: 20px;
         }
 
         .content {
-            padding: 30px 15px;
-        }
-
-        .img-banner {
-            width: 100%;
-            height: auto;
-            border-radius: 10px;
-            margin-top: 20px;
-        }
-
-        .mini-exercise {
-            background-color: #e9ecef;
-            padding: 15px;
-            margin-top: 15px;
-            border-radius: 8px;
+            padding: 40px 20px;
         }
 
         .card {
-            border: none;
             margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
 
         .card-header {
-            background-color: #007bff;
+            background: #007bff;
             color: white;
-            font-size: 1.5rem;
             text-align: center;
-            font-weight: 600;
+            font-size: 1.5rem;
+            font-weight: bold;
         }
 
         .card-body {
-            background-color: #f8f9fa;
-            font-size: 1.2rem;
+            padding: 20px;
+            background-color: #fff;
+            color: #343a40;
+        }
+
+        .instructor-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .instructor-photo img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
         }
 
         footer {
@@ -87,140 +104,65 @@
             color: white;
             padding: 20px;
             text-align: center;
-            margin-top: 50px;
         }
 
         footer a {
             color: #007bff;
-            font-weight: 500;
+            text-decoration: none;
         }
 
-        .instructor-section {
-            display: flex;
-            align-items: center;
-            margin-top: 30px;
-            padding: 20px;
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            background-color: #f9f9f9;
+        footer a:hover {
+            text-decoration: underline;
         }
 
-        .instructor-photo {
-            flex-shrink: 0;
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background-color: #ccc;
-            margin-right: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 14px;
-            color: #666;
+        .btn-primary {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .instructor-info {
-            flex: 1;
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
         }
-
-        .instructor-info h2 {
-            margin-top: 0;
-            color: #333;
-            font-weight: 700;
-            font-size: 1.8rem;
-        }
-
-        .instructor-info p {
-            margin: 10px 0 0;
-            color: #555;
-            font-weight: 400;
-        }
-
-        .instructor-photo img {
-            border-radius: 50%;
-            width: 150px;
-            height: 150px;
-            object-fit: cover;
-        }
-
-        @keyframes pulse {
-            0% {
-                box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-            }
-
-            50% {
-                box-shadow: 0 0 20px rgba(0, 123, 255, 0.8);
-            }
-
-            100% {
-                box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
-            }
-        }
-
-        .python-logo {
-            width: 40px;
-            height: auto;
-        }
-
-        /* Asegurarse de que la imagen no sobresalga */
-    @media (max-width: 768px) {
-        .header {
-            flex-direction: column; /* Para que el título y el logo estén uno debajo del otro */
-            padding: 20px;
-            text-align: center; /* Centrar todo el contenido del header */
-        }
-
-        .header h1 {
-            font-size: 1.8rem; /* Tamaño de título más pequeño */
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.2rem; /* Ajustar tamaño de texto en pantallas pequeñas */
-        }
-
-        .python-logo {
-            width: 30px; /* Logo aún más pequeño en pantallas muy pequeñas */
-        }
-    }
     </style>
 </head>
 
 <body>
-
     <!-- Header -->
     <header class="header">
         <h1>Automatización Inteligente con Python</h1>
-        <p><strong>Duración:</strong> 3 horas <strong><br/>Requisitos Previos:</strong> Ninguno</p>
-        <!-- Logo de Python alineado a la derecha -->
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo" class="python-logo">
+        <p>Duración: 3 horas<br>Requisitos Previos: Ninguno</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
     </header>
 
     <!-- Main Content -->
     <div class="container content">
-        <!-- Sección 1: Introducción Rápida a Python -->
         <section>
             <h2 class="section-title">1. Introducción Rápida a Python</h2>
-            <p><strong>Duración:</strong> 20 minutos</p>
+            <p>Duración: 20 minutos</p>
             <ul>
-                <li><i class="fas fa-check-circle"></i> Presentación del taller y objetivos</li>
-                <li><i class="fas fa-check-circle"></i> Qué es Python y por qué es ideal para la automatización</li>
-                <li><i class="fas fa-check-circle"></i> Breve repaso de conceptos básicos (variables, estructuras de control, etc.)</li>
+                <li>Presentación del taller y objetivos</li>
+                <li>Qué es Python y por qué es ideal para la automatización</li>
+                <li>Breve repaso de conceptos básicos</li>
             </ul>
         </section>
 
-        <!-- Sección 2: Automatización Básica con Ejemplos Reales -->
         <section>
             <h2 class="section-title">2. Automatización Básica con Ejemplos Reales</h2>
-            <p><strong>Duración:</strong> 60 Minutos</p>
+            <p>Duración: 60 minutos</p>
             <ul>
-                <li><i class="fas fa-check-circle"></i> Gestión de Archivos y Carpetas</li>
-                <li><i class="fas fa-check-circle"></i> Enviar Correos Automáticamente</li>
-                <li><i class="fas fa-check-circle"></i> Web Scraping Básico</li>
+                <li>Gestión de Archivos y Carpetas</li>
+                <li>Enviar Correos Automáticamente</li>
+                <li>Web Scraping Básico</li>
             </ul>
         </section>
 
-        <!-- Sección 3: Mini-Proyecto -->
         <section>
             <h2 class="section-title">Crear Tu Propio Bot de Automatización</h2>
             <p><strong>Duración:</strong> 60 minutos</p>
@@ -230,7 +172,6 @@
             </ul>
         </section>
 
-        <!-- Sección 4: Cierre e Inspiración -->
         <section>
             <h2 class="section-title">4. Cierre e Inspiración</h2>
             <p><strong>Duración:</strong> 15 minutos</p>
@@ -242,24 +183,31 @@
         </section>
 
         <section>
-            <h2 class="section-title">5. Entrega de Constancias y Material Complementario</h2>
+            <h2 class="section-title">5. Entrega de Certificado y Material Complementario</h2>
             <p><strong>Duración:</strong> 20 minutos</p>
             <ul>
-                <li><i class="fas fa-check-circle"></i> Constancias</li>
+                <li><i class="fas fa-check-circle"></i> Certificado</li>
                 <li><i class="fas fa-check-circle"></i> Material Complementario</li>
                 <li><i class="fas fa-check-circle"></i> Sorteo de Becas Para el Curso Oficial de Python</li>
             </ul>
         </section>
 
-        <!-- Información Adicional del Taller -->
+        <section>
+            <h2 class="section-title">Certificado de Participación</h2>
+            <p>Al completar el taller, recibirás un certificado oficial que acredita tu participación y los conocimientos adquiridos.</p>
+            <div class="text-center">
+                <img src="https://res.cloudinary.com/dream-music/image/upload/v1737770987/Cero_i2fczx.png" alt="Ejemplo de Certificado" class="img-fluid img-banner">
+            </div>
+        </section>
+
         <section>
             <h2 class="section-title">Detalles del Taller</h2>
             <ul>
-                <li><strong>📅 Fecha:</strong> Martes, 21 de enero del 2025</li>
+                <li><strong>📅 Fecha:</strong> Domingo, 26 de enero del 2025</li>
                 <li><strong>🕘 Horarios:</strong>
                     <ul>
-                        <li><strong>Mañana:</strong> 9:00 AM a 12:00 PM</li>
-                        <li><strong>Noche:</strong> 7:00 PM a 10:00 PM</li>
+                        <li><strong>Mañana:</strong> 10:00 AM a 1:00 PM</li>
+                        
                     </ul>
                 </li>
                 <li><strong>📜 Incluye:</strong>
@@ -284,7 +232,7 @@
             </ul>
         </section>
 
-        <!-- Instructor Section -->
+
         <section class="instructor-section">
             <div class="instructor-photo">
                 <img src="https://media.licdn.com/dms/image/v2/D4E03AQHpbWBPY95-wg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1672682638054?e=1742428800&v=beta&t=WUJGn__E6k4srBo_4F8PmhBidz9KTYpyNdDpYilHU1I" alt="Foto de Armando Ruiz">
@@ -303,7 +251,6 @@
             </div>
         </section>
 
-        <!-- Card with Extra Information -->
         <div class="card">
             <div class="card-header">
                 <i class="fas fa-info-circle"></i> Más Información
@@ -321,17 +268,12 @@
             </div>
         </div>
         
-        
-        <div class="col-md-4 d-flex justify-content-center">
 
-        <a href="https://wa.link/vimo6a" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #007BFF; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; animation: pulse 1.5s infinite; transition: transform 0.3s, background-color 0.3s;" onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='#0056b3';" onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='#007BFF';">Quiero participar</a>
-        </div>
     </div>
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Taller de Automatización con Python. Todos los derechos reservados.</p>
-        <p><a href="https://www.python.org/">Visita la documentación oficial de Python</a></p>
+        <p>&copy; 2025 Automatización con Python. Todos los derechos reservados.</p>
     </footer>
 
     <!-- Bootstrap JS -->
