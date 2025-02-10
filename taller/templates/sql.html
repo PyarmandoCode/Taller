@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python & Sql Server</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- FontAwesome para iconos -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f9fa;
+        }
+
+        .header {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            color: white;
+            padding: 40px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+            flex: 1 1 auto;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            margin: 0;
+            flex: 1 1 auto;
+        }
+
+        .header img {
+            max-width: 80px;
+            flex: 0 0 auto;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #343a40;
+            margin-bottom: 20px;
+        }
+
+        .content {
+            padding: 40px 20px;
+        }
+
+        .card {
+            margin-top: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .card-header {
+            background: #007bff;
+            color: white;
+            text-align: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .card-body {
+            padding: 20px;
+            background-color: #fff;
+            color: #343a40;
+        }
+
+        .instructor-section {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            padding: 20px;
+            background: white;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            margin-top: 40px;
+        }
+
+        .instructor-photo img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+        }
+
+        footer {
+            background-color: #343a40;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, #007bff, #0056b3);
+            border: none;
+            color: white;
+            font-weight: bold;
+            padding: 10px 20px;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .btn-primary:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <h1>Sistema de Asistencias con Python y SQL Server</h1>
+        <p>Duración: 4 horas<br>Requisitos Previos: Ninguno</p>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
+    </header>
+
+    <!-- Main Content -->
+    <div class="container content">
+        <section>
+            <h2 class="section-title">1. Fundamentos del Proyecto</h2>
+            <p>Duración: 20 minutos</p>
+            
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Introducción al Control de Asistencias </li>
+                <li><i class="fas fa-check-circle"></i> Importancia del control de asistencia en empresas e instituciones.</li>
+                <li><i class="fas fa-check-circle"></i> Tecnologías utilizadas: Código de Barras, RFID, QR</li>
+                <li><i class="fas fa-check-circle"></i> Casos de uso en la vida real</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">2. Conectando Python con SQL Server</h2>
+            <p>Duración: 60 minutos</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Instalación y configuración de SQL Server</li>
+                <li><i class="fas fa-check-circle"></i> Conexión con Python usando pyodbc</li>
+                <li><i class="fas fa-check-circle"></i> Creación de base de datos y tablas necesarias (Empleados, Asistencias etc).</li>
+                <li><i class="fas fa-check-circle"></i> Ejemplo de inserción y consulta de datos.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">3. Generación y Lectura de Código de Barras</h2>
+            <p><strong>Duración:</strong> 60 minutos</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Generación de Códigos de Barras con Python</li>
+                <li><i class="fas fa-check-circle"></i> Uso de la librería python-barcode.</li>
+                <li><i class="fas fa-check-circle"></i> Creación de códigos de barras únicos para cada empleado.</li>
+                <li><i class="fas fa-check-circle"></i> Guardado de códigos como imágenes.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">4. Lectura de Código de Barras y Registro de Asistencia</h2>
+            <p><strong>Duración:</strong> 40 minutos</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Integración con un lector de código de barras</li>
+                <li><i class="fas fa-check-circle"></i> Captura de datos en tiempo real con Python</li>
+                <li><i class="fas fa-check-circle"></i> Registro automático en la base de datos</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2 class="section-title">5. Desarrollo de la Aplicación </h2>
+            <p><strong>Duración:</strong> 60 minutos</p>
+            <ul>
+                <li><i class="fas fa-check-circle"></i> Creación de una Interfaz en Consola para Registrar Asistencias</li>
+                <li><i class="fas fa-check-circle"></i> Diseño del flujo de escaneo y validación de asistencias</li>
+                <li><i class="fas fa-check-circle"></i> Consulta de asistencias desde la base de datos</li>
+                <li><i class="fas fa-check-circle"></i> Generación de reportes de asistencia en Excel (pandas y openpyxl).</li>
+                
+            </ul>
+        </section>
+
+        
+
+        <section>
+            <h2 class="section-title">Detalles del Taller</h2>
+            <ul>
+                <li><strong>📅 Fecha:</strong> Domingo,  9 de Febrero del 2025</li>
+                <li><strong>🕘 Horario:</strong>
+                    <ul>
+                        <li><strong>Tarde:</strong> 2:00 PM a 6:00 PM</li>
+                        
+                    </ul>
+                </li>
+                <li><strong>📜 Incluye:</strong>
+                    <ul>
+                        <li>Grabacion del Taller</li>
+                        <li>Repositorio del código completo del taller</li>
+                    </ul>
+                </li>
+                
+                       
+                    </ul>
+                </li>
+                
+                
+                <a href="https://wa.link/79cbxy" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #007BFF; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; animation: pulse 1.5s infinite; transition: transform 0.3s, background-color 0.3s;" onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='#0056b3';" onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='#007BFF';">Quiero participar</a>
+            </ul>
+        </section>
+
+
+        <section class="instructor-section">
+            <div class="instructor-photo">
+                <img src="https://media.licdn.com/dms/image/v2/D4E03AQHpbWBPY95-wg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1672682638054?e=1742428800&v=beta&t=WUJGn__E6k4srBo_4F8PmhBidz9KTYpyNdDpYilHU1I" alt="Foto de Armando Ruiz">
+            </div>
+            <div class="instructor-info">
+                <h2>Instructor</h2>
+                <p>Armando Ruiz es un profesional altamente experimentado con más de 25 años en la industria de la tecnología y la programación, especializado en Python. Cuenta con certificaciones profesionales reconocidas que respaldan su dominio técnico y su capacidad como instructor.</p>
+                <div class="social-icons">
+                    <a href="https://www.youtube.com/@ArmandoRuizTech" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1216/1216752.png" alt="YouTube" width="30" height="30">
+                    </a>
+                    <a href="https://www.linkedin.com/in/pyarmandoacademy/" target="_blank">
+                        <img src="https://cdn-icons-png.flaticon.com/512/4494/4494497.png" alt="LinkedIn" width="30" height="30">
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <div class="card">
+            <div class="card-header">
+                <i class="fas fa-info-circle"></i> Más Información
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-12 col-md-8"> <!-- Cambio aquí: 'col-12' para pantallas pequeñas -->
+                        <p style="text-align: justify;">En este taller práctico de 4 horas, aprenderás a desarrollar un sistema de control de asistencias utilizando Python y SQL Server, integrando la lectura de códigos de barras para el registro automático de entradas y salidas.<br/>
+
+                            📌 ¿Qué aprenderás?<br/>
+                            ✅ Conectar Python con SQL Server para gestionar bases de datos.<br/>
+                            ✅ Generar códigos de barras únicos para cada usuario con Python.<br/>
+                            ✅ Capturar y procesar datos en tiempo real mediante un lector de código de barras.<br/>
+                            ✅ Registrar automáticamente la asistencia en la base de datos.<br/>
+                            ✅ Crear una interfaz en consola para gestionar asistencias.<br/>
+                            ✅ Generar reportes en Excel con los registros de asistencia.<br/>
+                            ✅ Aplicar buenas prácticas de seguridad y optimización..</p><br/>
+                       
+                    </div>
+                    <div class="col-12 col-md-4 d-flex justify-content-center">
+                        <img src="https://res.cloudinary.com/dream-music/image/upload/v1739045920/wa.link_79cbxy_iqfy2y.png" alt="Imagen representativa del taller" class="img-fluid rounded mx-auto d-block">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Automatización con Python. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

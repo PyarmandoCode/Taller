@@ -1,287 +1,178 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Python & Sql Server</title>
-    <!-- Bootstrap 5 CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- FontAwesome para iconos -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Curso PCEP - Certificación Python</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f9fa;
-        }
-
-        .header {
-            background: linear-gradient(90deg, #007bff, #0056b3);
+            background-color: #0d1b2a;
             color: white;
-            padding: 40px 20px;
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
+            font-size: 18px;
+            font-family: 'Poppins', sans-serif;
+        }
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://source.unsplash.com/1600x900/?technology,python');
+            background-size: cover;
             text-align: center;
+            padding: 140px 20px;
         }
-
-        .header h1 {
-            font-size: 2.5rem;
-            margin: 0;
-            flex: 1 1 auto;
-        }
-
-        .header p {
-            font-size: 1.2rem;
-            margin: 0;
-            flex: 1 1 auto;
-        }
-
-        .header img {
-            max-width: 80px;
-            flex: 0 0 auto;
-        }
-
         .section-title {
-            font-size: 2rem;
-            font-weight: 600;
-            color: #343a40;
-            margin-bottom: 20px;
-        }
-
-        .content {
-            padding: 40px 20px;
-        }
-
-        .card {
-            margin-top: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-
-        .card-header {
-            background: #007bff;
-            color: white;
-            text-align: center;
-            font-size: 1.5rem;
+            color: #f5a623;
+            text-transform: uppercase;
             font-weight: bold;
+            font-size: 26px;
+            margin-bottom: 25px;
         }
-
-        .card-body {
-            padding: 20px;
-            background-color: #fff;
-            color: #343a40;
-        }
-
-        .instructor-section {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-            padding: 20px;
-            background: white;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            border-radius: 10px;
-            margin-top: 40px;
-        }
-
-        .instructor-photo img {
-            border-radius: 50%;
-            width: 120px;
-            height: 120px;
-            object-fit: cover;
-        }
-
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 20px;
-            text-align: center;
-        }
-
-        footer a {
-            color: #007bff;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-        }
-
-        .btn-primary {
-            background: linear-gradient(90deg, #007bff, #0056b3);
+        .card {
+            background-color: #1b263b;
             border: none;
             color: white;
-            font-weight: bold;
-            padding: 10px 20px;
-            border-radius: 5px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+            border-radius: 15px;
         }
-
-        .btn-primary:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+        .card:hover {
+            transform: scale(1.1);
+            box-shadow: 0px 6px 20px rgba(255, 165, 0, 0.6);
+        }
+        .temario-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+        }
+        .temario-container .card {
+            width: 320px;
+            padding: 25px;
+            text-align: center;
+        }
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            padding-top: 56.25%;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+        }
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .whatsapp-button img {
+            width: 20px;
+            height: 20px;
+        }
+        .info-box {
+            background-color: #1b263b;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 20px rgba(255, 165, 0, 0.5);
+            text-align: center;
+            margin-top: 20px;
+        }
+        .info-box i {
+            font-size: 50px;
+            color: #f5a623;
+            margin-bottom: 15px;
         }
     </style>
 </head>
-
 <body>
-    <!-- Header -->
-    <header class="header">
-        <h1>Sistema de Asistencias con Python y SQL Server</h1>
-        <p>Duración: 4 horas<br>Requisitos Previos: Ninguno</p>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg" alt="Python Logo">
+    <header class="hero">
+        <img src="https://res.cloudinary.com/dream-music/image/upload/v1739224605/PCEP_brywoa.png" alt="Logo del Curso" class="img-fluid mb-3" style="max-width: 200px;">
+        <h1 class="display-3 text-warning">Curso de Preparación para PCEP</h1>
+        <p class="lead text-light">Conviértete en un programador certificado en Python con nuestro curso especializado</p>
+        <a href="#temario" class="btn btn-warning btn-lg">Ver Temario</a>
     </header>
 
-    <!-- Main Content -->
-    <div class="container content">
-        <section>
-            <h2 class="section-title">1. Fundamentos del Proyecto</h2>
-            <p>Duración: 20 minutos</p>
-            
-            <ul>
-                <li><i class="fas fa-check-circle"></i> Introducción al Control de Asistencias </li>
-                <li><i class="fas fa-check-circle"></i> Importancia del control de asistencia en empresas e instituciones.</li>
-                <li><i class="fas fa-check-circle"></i> Tecnologías utilizadas: Código de Barras, RFID, QR</li>
-                <li><i class="fas fa-check-circle"></i> Casos de uso en la vida real</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 class="section-title">2. Conectando Python con SQL Server</h2>
-            <p>Duración: 60 minutos</p>
-            <ul>
-                <li><i class="fas fa-check-circle"></i> Instalación y configuración de SQL Server</li>
-                <li><i class="fas fa-check-circle"></i> Conexión con Python usando pyodbc</li>
-                <li><i class="fas fa-check-circle"></i> Creación de base de datos y tablas necesarias (Empleados, Asistencias etc).</li>
-                <li><i class="fas fa-check-circle"></i> Ejemplo de inserción y consulta de datos.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 class="section-title">3. Generación y Lectura de Código de Barras</h2>
-            <p><strong>Duración:</strong> 60 minutos</p>
-            <ul>
-                <li><i class="fas fa-check-circle"></i> Generación de Códigos de Barras con Python</li>
-                <li><i class="fas fa-check-circle"></i> Uso de la librería python-barcode.</li>
-                <li><i class="fas fa-check-circle"></i> Creación de códigos de barras únicos para cada empleado.</li>
-                <li><i class="fas fa-check-circle"></i> Guardado de códigos como imágenes.</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 class="section-title">4. Lectura de Código de Barras y Registro de Asistencia</h2>
-            <p><strong>Duración:</strong> 40 minutos</p>
-            <ul>
-                <li><i class="fas fa-check-circle"></i> Integración con un lector de código de barras</li>
-                <li><i class="fas fa-check-circle"></i> Captura de datos en tiempo real con Python</li>
-                <li><i class="fas fa-check-circle"></i> Registro automático en la base de datos</li>
-            </ul>
-        </section>
-
-        <section>
-            <h2 class="section-title">5. Desarrollo de la Aplicación </h2>
-            <p><strong>Duración:</strong> 60 minutos</p>
-            <ul>
-                <li><i class="fas fa-check-circle"></i> Creación de una Interfaz en Consola para Registrar Asistencias</li>
-                <li><i class="fas fa-check-circle"></i> Diseño del flujo de escaneo y validación de asistencias</li>
-                <li><i class="fas fa-check-circle"></i> Consulta de asistencias desde la base de datos</li>
-                <li><i class="fas fa-check-circle"></i> Generación de reportes de asistencia en Excel (pandas y openpyxl).</li>
-                
-            </ul>
-        </section>
-
-        
-
-        <section>
-            <h2 class="section-title">Detalles del Taller</h2>
-            <ul>
-                <li><strong>📅 Fecha:</strong> Domingo,  9 de Febrero del 2025</li>
-                <li><strong>🕘 Horario:</strong>
-                    <ul>
-                        <li><strong>Tarde:</strong> 2:00 PM a 6:00 PM</li>
-                        
-                    </ul>
-                </li>
-                <li><strong>📜 Incluye:</strong>
-                    <ul>
-                        <li>Grabacion del Taller</li>
-                        <li>Repositorio del código completo del taller</li>
-                    </ul>
-                </li>
-                
-                       
-                    </ul>
-                </li>
-                
-                
-                <a href="https://wa.link/79cbxy" style="display: inline-block; margin-top: 10px; padding: 10px 20px; background-color: #007BFF; color: #fff; text-decoration: none; border-radius: 5px; font-weight: bold; animation: pulse 1.5s infinite; transition: transform 0.3s, background-color 0.3s;" onmouseover="this.style.transform='scale(1.1)'; this.style.backgroundColor='#0056b3';" onmouseout="this.style.transform='scale(1)'; this.style.backgroundColor='#007BFF';">Quiero participar</a>
-            </ul>
-        </section>
-
-
-        <section class="instructor-section">
-            <div class="instructor-photo">
-                <img src="https://media.licdn.com/dms/image/v2/D4E03AQHpbWBPY95-wg/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1672682638054?e=1742428800&v=beta&t=WUJGn__E6k4srBo_4F8PmhBidz9KTYpyNdDpYilHU1I" alt="Foto de Armando Ruiz">
+    <section class="container mt-5">
+        <h2 class="section-title text-center"><i class="fa-solid fa-award"></i> ¿Qué es PCEP?</h2>
+        <div class="info-box">
+            <i class="fa-solid fa-laptop-code"></i>
+            <p>La certificación <strong>PCEP™ – Certified Entry-Level Python Programmer</strong> (examen PCEP-30-0x) es una credencial profesional que mide la capacidad del candidato para realizar tareas de codificación relacionadas con los aspectos esenciales de la programación en el lenguaje Python.</p>
+            <p>El candidato debe demostrar conocimientos en conceptos universales de programación, sintaxis y semántica de Python, así como habilidades para resolver desafíos con la biblioteca estándar de Python.</p>
+        </div>
+    </section>
+    <section class="container mt-5" id="temario">
+        <h2 class="section-title text-center"><i class="fa-solid fa-book"></i> Temario del Curso</h2>
+        <div class="temario-container">
+            <div class="card p-4">
+                <h5><i class="fa-solid fa-code"></i> 1. Conceptos Básicos</h5>
+                <p>Fundamentos de Python, estructura, sintaxis, operadores y variables.</p>
             </div>
-            <div class="instructor-info">
-                <h2>Instructor</h2>
-                <p>Armando Ruiz es un profesional altamente experimentado con más de 25 años en la industria de la tecnología y la programación, especializado en Python. Cuenta con certificaciones profesionales reconocidas que respaldan su dominio técnico y su capacidad como instructor.</p>
-                <div class="social-icons">
-                    <a href="https://www.youtube.com/@ArmandoRuizTech" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/1216/1216752.png" alt="YouTube" width="30" height="30">
-                    </a>
-                    <a href="https://www.linkedin.com/in/pyarmandoacademy/" target="_blank">
-                        <img src="https://cdn-icons-png.flaticon.com/512/4494/4494497.png" alt="LinkedIn" width="30" height="30">
-                    </a>
-                </div>
+            <div class="card p-4">
+                <h5><i class="fa-solid fa-code"></i> 2. Tipos de Datos y Operaciones</h5>
+                <p>Manejo de datos, operadores booleanos, entrada/salida y manipulación de cadenas.</p>
             </div>
-        </section>
-
-        <div class="card">
-            <div class="card-header">
-                <i class="fas fa-info-circle"></i> Más Información
+            <div class="card p-4">
+                <h5><i class="fa-solid fa-code"></i> 3. Control de Flujo</h5>
+                <p>Condicionales, bucles, estructuras de control y toma de decisiones.</p>
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-12 col-md-8"> <!-- Cambio aquí: 'col-12' para pantallas pequeñas -->
-                        <p style="text-align: justify;">En este taller práctico de 4 horas, aprenderás a desarrollar un sistema de control de asistencias utilizando Python y SQL Server, integrando la lectura de códigos de barras para el registro automático de entradas y salidas.<br/>
-
-                            📌 ¿Qué aprenderás?<br/>
-                            ✅ Conectar Python con SQL Server para gestionar bases de datos.<br/>
-                            ✅ Generar códigos de barras únicos para cada usuario con Python.<br/>
-                            ✅ Capturar y procesar datos en tiempo real mediante un lector de código de barras.<br/>
-                            ✅ Registrar automáticamente la asistencia en la base de datos.<br/>
-                            ✅ Crear una interfaz en consola para gestionar asistencias.<br/>
-                            ✅ Generar reportes en Excel con los registros de asistencia.<br/>
-                            ✅ Aplicar buenas prácticas de seguridad y optimización..</p><br/>
-                       
-                    </div>
-                    <div class="col-12 col-md-4 d-flex justify-content-center">
-                        <img src="https://res.cloudinary.com/dream-music/image/upload/v1739045920/wa.link_79cbxy_iqfy2y.png" alt="Imagen representativa del taller" class="img-fluid rounded mx-auto d-block">
-                    </div>
-                </div>
+            <div class="card p-4">
+                <h5><i class="fa-solid fa-code"></i> 4. Colecciones de Datos</h5>
+                <p>Listas, tuplas, diccionarios, métodos y manipulación de estructuras de datos.</p>
+            </div>
+            <div class="card p-4">
+                <h5><i class="fa-solid fa-code"></i> 5. Funciones</h5>
+                <p>Definición, argumentos, valores predeterminados, ámbito de nombres y recursividad.</p>
             </div>
         </div>
-        
+        </div>
+    </section>
+    
+    <section class="container mt-5 text-center">
+        <h2 class="section-title"><i class="fa-solid fa-certificate"></i> Certificación Oficial</h2>
+        <p>Al completar el curso, estarás preparado para el examen PCEP oficial.</p>
+        <img src="https://res.cloudinary.com/dream-music/image/upload/v1739225528/instituo_python_rytavh.png" alt="Certificado de Finalización" class="img-fluid" style="max-width: 500px; border-radius: 10px;">
+    </section>
+    
+    <section class="container mt-5 text-center">
+        <h2 class="section-title"><i class="fa-solid fa-calendar"></i> Horarios, Costo y Datos del Instructor</h2>
+        <p><strong>Horarios:</strong> Lunes, Miércoles y Viernes, 8:00 PM - 10:00 PM</p>
+        <p><strong>Costo:</strong> 100 Soles o $30 USD (50% de descuento hasta el día de hoy)</p>
+        <p><strong>Instructor:</strong> Armando Ruiz, experto en Python con más de 20 años de experiencia.</p>
+    </section>
+    
+    <section class="container mt-5 text-center">
+        <h2 class="section-title"><i class="fa-solid fa-video"></i> Video de Muestra del Curso</h2>
+        <div class="video-container">
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/CzFycZBSAe8" 
+                frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
 
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Automatización con Python. Todos los derechos reservados.</p>
+        </div>
+    </section>
+    
+    <a href="https://wa.link/comxrr" class="whatsapp-button" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"> Quiero inscribirme
+    </a>
+    
+    <footer class="text-center py-4 mt-5" style="background-color: #0f3460;">
+        <p>&copy; 2025 Pyarmando Academy | Todos los derechos reservados</p>
     </footer>
-
-    <!-- Bootstrap JS -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
-
 </html>
